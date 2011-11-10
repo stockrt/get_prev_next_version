@@ -74,6 +74,20 @@ get_prev_next_version ()
             ;;
     esac
 
+    # Creating array with original fields
+    field_count=0
+    fields_orig=()
+    IFS="."
+    for field in $version
+    do
+        # Array with original splitted fields
+        fields_orig[$field_count]=$field
+        let field_count+=1
+    done
+    # Restore original IFS
+    IFS="$ofs"
+    let field_count-=1
+
     # Initial master cases
     if [[ "$version" == "master" ]]
     then
@@ -90,24 +104,17 @@ get_prev_next_version ()
 
     # Boundary cases
     will_do_other_cases=0
-    field_count=0
-    fields_orig=()
-    IFS="."
-    for field in $version
+    for count in $(seq 0 $field_count)
     do
+        field=${fields_orig[$count]}
+
         # Does version contain fields other than 0 or 99?
         if [[ $field != 0 && $field != 99 ]]
         then
             # Will process other cases than boundary cases
             will_do_other_cases=1
         fi
-
-        fields_orig[$field_count]=$field
-        let field_count+=1
     done
-    # Restore original IFS
-    IFS="$ofs"
-    let field_count-=1
 
     skip_boundary_case=0
     if [[ $will_do_other_cases == 0 && "$command" == "prev" ]]
