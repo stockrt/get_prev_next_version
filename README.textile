@@ -1,0 +1,106 @@
+h2. Get_prev_next_version
+
+Bash script with a function to get the previous or the next version number.
+
+Just pass to the script or function (depends on how you want to use it):
+* Version number size
+** Size is like this:
+*** 1 would be a version number like from 0.1 to 9.9
+*** 2 would be a version number like from 0.1 to 99.99
+*** 3 would be a version number like from 0.1 to 999.999
+*** You should have got the idea
+* Command (prev or next)
+* Current version number
+
+h2. Usage
+
+Clone:
+
+<pre>
+<code>
+    git clone https://github.com/stockrt/get_prev_next_version.git
+</code>
+</pre>
+
+Using the script:
+
+<pre>
+<code>
+    cd get_prev_next_version
+
+    ./get_prev_next_version.sh 2 prev 1.1.1
+    1.1.0
+
+    ./get_prev_next_version.sh 2 next 1.1.1
+    1.1.2
+
+    ./get_prev_next_version.sh 2 prev 1.1.0
+    1.0.99
+
+    ./get_prev_next_version.sh 2 next 1.1.99
+    1.2.0
+</code>
+</pre>
+
+Using the function:
+
+<pre>
+<code>
+    cd get_prev_next_version
+
+    source get_prev_next_version.sh
+
+    get_prev_next_version 2 prev 1.1.1
+    1.1.0
+
+    get_prev_next_version 2 next 1.1.1
+    1.1.2
+
+    get_prev_next_version 2 prev 1.1.0
+    1.0.99
+
+    get_prev_next_version 2 next 1.1.99
+    1.2.0
+</code>
+</pre>
+
+h2. Tests
+
+This is just testing madness.
+
+Try "roundup":http://bmizerany.github.com/roundup and see what a twisted mind one can have by building insane and extensive testing:
+
+<pre>
+<code>
+    cd /tmp
+    rm -rf bmizerany-roundup*
+    curl -s -L https://github.com/bmizerany/roundup/tarball/master | tar xzvf -
+    cd bmizerany-roundup*
+    ./configure
+    make
+    sudo make install
+</code>
+</pre>
+
+Then run the tests and see the madness:
+
+<pre>
+<code>
+    cd get_prev_next_version
+    roundup
+</code>
+</pre>
+
+h2. Author
+
+Rogério Carvalho Schneider <stockrt@gmail.com>
+
+"http://stockrt.github.com":http://stockrt.github.com
+
+h2. Contributors
+
+"People":https://github.com/stockrt/get_prev_next_version/contributors
+
+h2. License
+
+See "LICENSE":https://github.com/stockrt/get_prev_next_version/blob/master/LICENSE
