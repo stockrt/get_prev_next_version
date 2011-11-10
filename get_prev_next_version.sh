@@ -1,8 +1,27 @@
 #!/usr/bin/env bash
+
+# Copyright (C) 2011 Rogério Carvalho Schneider <stockrt@gmail.com>
 #
-# Get previous or next version number.
+# This file is part of get_prev_next_version.
 #
-# Author: Rogério Carvalho Schneider <stockrt@gmail.com>
+# get_prev_next_version is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# get_prev_next_version is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with get_prev_next_version.  If not, see <http://www.gnu.org/licenses/>.
+#
+#
+# get_prev_next_version.sh
+#
+# Created:  Nov 10, 2011
+# Author:   Rogério Carvalho Schneider <stockrt@gmail.com>
 
 
 #############
