@@ -42,10 +42,12 @@ get_prev_next_version ()
     # Save original IFS
     ofs="$IFS"
 
+    # Parameters
     field_size="$1"
     command="$2"
     version="$3"
 
+    # Checking parameters
     if [[ -z "$field_size" || -z "$command" || -z "$version" || ! -z "$4" ]]
     then
         echo "ERR: $BASH_SOURCE:$BASH_LINENO $FUNCNAME():$LINENO \"$*\""
@@ -55,6 +57,7 @@ get_prev_next_version ()
         exit 1
     fi
 
+    # Backward or Forward?
     case "$command" in
         next)
             next_field_op=1
@@ -112,6 +115,7 @@ get_prev_next_version ()
         for count in $(seq 0 $field_count)
         do
             field=${fields_orig[$count]}
+
             if [[ $field == 99 ]]
             then
                 skip_boundary_case=1
@@ -130,6 +134,7 @@ get_prev_next_version ()
         for count in $(seq 0 $field_count)
         do
             field=${fields_orig[$count]}
+
             if [[ $field == 0 ]]
             then
                 skip_boundary_case=1
@@ -228,10 +233,12 @@ get_prev_next_version ()
 ## MAIN ##
 ##########
 
+# Arguments
 field_size="$1"
 command="$2"
 version="$3"
 
+# Checking arguments
 if [[ -z "$field_size" || -z "$command" || -z "$version" || ! -z "$4" ]]
 then
     echo "$usage_message"
