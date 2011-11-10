@@ -102,6 +102,18 @@ get_prev_next_version ()
         fi
     fi
 
+    # Version number field size case
+    for count in $(seq 0 $field_count)
+    do
+        field=${fields_orig[$count]}
+
+        if [[ ${#field} -gt $field_size ]]
+        then
+            echo "$err_field_size"
+            return
+        fi
+    done
+
     # Boundary cases
     will_do_other_cases=0
     for count in $(seq 0 $field_count)
