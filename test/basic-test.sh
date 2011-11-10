@@ -38,7 +38,7 @@ Usage: get_prev_next_version.sh 2 next 1.1.1"
 ###########
 
 it_displays_usage () {
-    ret=$(./get_prev_next_version.sh)
+    ret=$(../get_prev_next_version.sh)
     test "$ret" = "$usage_message"
 }
 
@@ -48,42 +48,42 @@ it_displays_usage () {
 ################
 
 it_goes_backward_1_off1 () {
-    ret=$(./get_prev_next_version.sh 1 prev 10)
+    ret=$(../get_prev_next_version.sh 1 prev 10)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_1_off2 () {
-    ret=$(./get_prev_next_version.sh 1 prev 100)
+    ret=$(../get_prev_next_version.sh 1 prev 100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_1_off3 () {
-    ret=$(./get_prev_next_version.sh 1 prev 0.10)
+    ret=$(../get_prev_next_version.sh 1 prev 0.10)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_1_off4 () {
-    ret=$(./get_prev_next_version.sh 1 prev 0.100)
+    ret=$(../get_prev_next_version.sh 1 prev 0.100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_1_off5 () {
-    ret=$(./get_prev_next_version.sh 1 prev 10.0)
+    ret=$(../get_prev_next_version.sh 1 prev 10.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_1_off6 () {
-    ret=$(./get_prev_next_version.sh 1 prev 100.0)
+    ret=$(../get_prev_next_version.sh 1 prev 100.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_1_master () {
-    ret=$(./get_prev_next_version.sh 1 prev master)
+    ret=$(../get_prev_next_version.sh 1 prev master)
     test "$ret" = "master"
 }
 
 it_goes_backward_1_overlap_many () {
-    ret=$(./get_prev_next_version.sh 1 prev 1.0.0.0.0.0)
+    ret=$(../get_prev_next_version.sh 1 prev 1.0.0.0.0.0)
     test "$ret" = "0.9.9.9.9.9"
 }
 
@@ -93,52 +93,52 @@ it_goes_backward_1_overlap_many () {
 ###############
 
 it_goes_forward_1_off1 () {
-    ret=$(./get_prev_next_version.sh 1 next 10)
+    ret=$(../get_prev_next_version.sh 1 next 10)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_1_off2 () {
-    ret=$(./get_prev_next_version.sh 1 next 100)
+    ret=$(../get_prev_next_version.sh 1 next 100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_1_off3 () {
-    ret=$(./get_prev_next_version.sh 1 next 0.10)
+    ret=$(../get_prev_next_version.sh 1 next 0.10)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_1_off4 () {
-    ret=$(./get_prev_next_version.sh 1 next 0.100)
+    ret=$(../get_prev_next_version.sh 1 next 0.100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_1_off5 () {
-    ret=$(./get_prev_next_version.sh 1 next 10.0)
+    ret=$(../get_prev_next_version.sh 1 next 10.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_1_off6 () {
-    ret=$(./get_prev_next_version.sh 1 next 100.0)
+    ret=$(../get_prev_next_version.sh 1 next 100.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_1_master () {
-    ret=$(./get_prev_next_version.sh 1 next master)
+    ret=$(../get_prev_next_version.sh 1 next master)
     test "$ret" = "1"
 }
 
 it_goes_forward_1_overlap_many1 () {
-    ret=$(./get_prev_next_version.sh 1 next 0.9.9.9.9.9)
+    ret=$(../get_prev_next_version.sh 1 next 0.9.9.9.9.9)
     test "$ret" = "1.0.0.0.0.0"
 }
 
 it_goes_forward_1_overlap_many2 () {
-    ret=$(./get_prev_next_version.sh 1 next 0.99.99.99.99.99)
+    ret=$(../get_prev_next_version.sh 1 next 0.99.99.99.99.99)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_1_overlap_many3 () {
-    ret=$(./get_prev_next_version.sh 1 next 0.999.999.999.999.999)
+    ret=$(../get_prev_next_version.sh 1 next 0.999.999.999.999.999)
     test "$ret" = "$err_field_size"
 }
 
@@ -148,42 +148,42 @@ it_goes_forward_1_overlap_many3 () {
 ################
 
 it_goes_backward_2_off1 () {
-    ret=$(./get_prev_next_version.sh 2 prev 100)
+    ret=$(../get_prev_next_version.sh 2 prev 100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_2_off2 () {
-    ret=$(./get_prev_next_version.sh 2 prev 1000)
+    ret=$(../get_prev_next_version.sh 2 prev 1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_2_off3 () {
-    ret=$(./get_prev_next_version.sh 2 prev 0.100)
+    ret=$(../get_prev_next_version.sh 2 prev 0.100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_2_off4 () {
-    ret=$(./get_prev_next_version.sh 2 prev 0.1000)
+    ret=$(../get_prev_next_version.sh 2 prev 0.1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_2_off5 () {
-    ret=$(./get_prev_next_version.sh 2 prev 100.0)
+    ret=$(../get_prev_next_version.sh 2 prev 100.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_2_off6 () {
-    ret=$(./get_prev_next_version.sh 2 prev 1000.0)
+    ret=$(../get_prev_next_version.sh 2 prev 1000.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_2_master () {
-    ret=$(./get_prev_next_version.sh 2 prev master)
+    ret=$(../get_prev_next_version.sh 2 prev master)
     test "$ret" = "master"
 }
 
 it_goes_backward_2_overlap_many () {
-    ret=$(./get_prev_next_version.sh 2 prev 1.0.0.0.0.0)
+    ret=$(../get_prev_next_version.sh 2 prev 1.0.0.0.0.0)
     test "$ret" = "0.99.99.99.99.99"
 }
 
@@ -193,52 +193,52 @@ it_goes_backward_2_overlap_many () {
 ###############
 
 it_goes_forward_2_off1 () {
-    ret=$(./get_prev_next_version.sh 2 next 100)
+    ret=$(../get_prev_next_version.sh 2 next 100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_2_off2 () {
-    ret=$(./get_prev_next_version.sh 2 next 1000)
+    ret=$(../get_prev_next_version.sh 2 next 1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_2_off3 () {
-    ret=$(./get_prev_next_version.sh 2 next 0.100)
+    ret=$(../get_prev_next_version.sh 2 next 0.100)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_2_off4 () {
-    ret=$(./get_prev_next_version.sh 2 next 0.1000)
+    ret=$(../get_prev_next_version.sh 2 next 0.1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_2_off5 () {
-    ret=$(./get_prev_next_version.sh 2 next 100.0)
+    ret=$(../get_prev_next_version.sh 2 next 100.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_2_off6 () {
-    ret=$(./get_prev_next_version.sh 2 next 1000.0)
+    ret=$(../get_prev_next_version.sh 2 next 1000.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_2_master () {
-    ret=$(./get_prev_next_version.sh 2 next master)
+    ret=$(../get_prev_next_version.sh 2 next master)
     test "$ret" = "1"
 }
 
 it_goes_forward_2_overlap_many1 () {
-    ret=$(./get_prev_next_version.sh 2 next 0.9.9.9.9.9)
+    ret=$(../get_prev_next_version.sh 2 next 0.9.9.9.9.9)
     test "$ret" = "0.9.9.9.9.10"
 }
 
 it_goes_forward_2_overlap_many2 () {
-    ret=$(./get_prev_next_version.sh 2 next 0.99.99.99.99.99)
+    ret=$(../get_prev_next_version.sh 2 next 0.99.99.99.99.99)
     test "$ret" = "1.0.0.0.0.0"
 }
 
 it_goes_forward_2_overlap_many3 () {
-    ret=$(./get_prev_next_version.sh 2 next 0.999.999.999.999.999)
+    ret=$(../get_prev_next_version.sh 2 next 0.999.999.999.999.999)
     test "$ret" = "$err_field_size"
 }
 
@@ -248,42 +248,42 @@ it_goes_forward_2_overlap_many3 () {
 ################
 
 it_goes_backward_3_off1 () {
-    ret=$(./get_prev_next_version.sh 3 prev 1000)
+    ret=$(../get_prev_next_version.sh 3 prev 1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_3_off2 () {
-    ret=$(./get_prev_next_version.sh 3 prev 10000)
+    ret=$(../get_prev_next_version.sh 3 prev 10000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_3_off3 () {
-    ret=$(./get_prev_next_version.sh 3 prev 0.1000)
+    ret=$(../get_prev_next_version.sh 3 prev 0.1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_3_off4 () {
-    ret=$(./get_prev_next_version.sh 3 prev 0.10000)
+    ret=$(../get_prev_next_version.sh 3 prev 0.10000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_3_off5 () {
-    ret=$(./get_prev_next_version.sh 3 prev 1000.0)
+    ret=$(../get_prev_next_version.sh 3 prev 1000.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_3_off6 () {
-    ret=$(./get_prev_next_version.sh 3 prev 10000.0)
+    ret=$(../get_prev_next_version.sh 3 prev 10000.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_backward_3_master () {
-    ret=$(./get_prev_next_version.sh 3 prev master)
+    ret=$(../get_prev_next_version.sh 3 prev master)
     test "$ret" = "master"
 }
 
 it_goes_backward_3_overlap_many () {
-    ret=$(./get_prev_next_version.sh 3 prev 1.0.0.0.0.0)
+    ret=$(../get_prev_next_version.sh 3 prev 1.0.0.0.0.0)
     test "$ret" = "0.999.999.999.999.999"
 }
 
@@ -293,51 +293,51 @@ it_goes_backward_3_overlap_many () {
 ###############
 
 it_goes_forward_3_off1 () {
-    ret=$(./get_prev_next_version.sh 3 next 1000)
+    ret=$(../get_prev_next_version.sh 3 next 1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_3_off2 () {
-    ret=$(./get_prev_next_version.sh 3 next 10000)
+    ret=$(../get_prev_next_version.sh 3 next 10000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_3_off3 () {
-    ret=$(./get_prev_next_version.sh 3 next 0.1000)
+    ret=$(../get_prev_next_version.sh 3 next 0.1000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_3_off4 () {
-    ret=$(./get_prev_next_version.sh 3 next 0.10000)
+    ret=$(../get_prev_next_version.sh 3 next 0.10000)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_3_off5 () {
-    ret=$(./get_prev_next_version.sh 3 next 1000.0)
+    ret=$(../get_prev_next_version.sh 3 next 1000.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_3_off6 () {
-    ret=$(./get_prev_next_version.sh 3 next 10000.0)
+    ret=$(../get_prev_next_version.sh 3 next 10000.0)
     test "$ret" = "$err_field_size"
 }
 
 it_goes_forward_3_master () {
-    ret=$(./get_prev_next_version.sh 3 next master)
+    ret=$(../get_prev_next_version.sh 3 next master)
     test "$ret" = "1"
 }
 
 it_goes_forward_3_overlap_many1 () {
-    ret=$(./get_prev_next_version.sh 3 next 0.9.9.9.9.9)
+    ret=$(../get_prev_next_version.sh 3 next 0.9.9.9.9.9)
     test "$ret" = "0.9.9.9.9.10"
 }
 
 it_goes_forward_3_overlap_many2 () {
-    ret=$(./get_prev_next_version.sh 3 next 0.99.99.99.99.99)
+    ret=$(../get_prev_next_version.sh 3 next 0.99.99.99.99.99)
     test "$ret" = "0.99.99.99.99.100"
 }
 
 it_goes_forward_3_overlap_many3 () {
-    ret=$(./get_prev_next_version.sh 3 next 0.999.999.999.999.999)
+    ret=$(../get_prev_next_version.sh 3 next 0.999.999.999.999.999)
     test "$ret" = "1.0.0.0.0.0"
 }
