@@ -55,9 +55,7 @@ get_prev_next_version ()
     then
         echo "ERR: $BASH_SOURCE:$BASH_LINENO $FUNCNAME():$LINENO \"$*\""
         echo "ERR: You must call \"$FUNCNAME\" with three non-empty parameters."
-        # Restore original IFS
-        IFS="$ofs"
-        exit 1
+        return
     fi
 
     # Backward or Forward?
@@ -71,9 +69,8 @@ get_prev_next_version ()
         *)
             echo "ERR: $BASH_SOURCE:$BASH_LINENO $FUNCNAME():$LINENO \"$*\""
             echo "ERR: You must call \"$FUNCNAME\" with \"prev\" or \"next\" operator commands."
-            # Restore original IFS
-            IFS="$ofs"
-            exit 1
+            echo "$err_command_type $command"
+            return
             ;;
     esac
 
