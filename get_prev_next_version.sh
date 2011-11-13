@@ -50,7 +50,7 @@ get_prev_next_version ()
     command="$2"
     version="$3"
 
-    # Checking parameters
+    # Check parameters
     if [[ -z "$field_size" || -z "$command" || -z "$version" || ! -z "$4" ]]
     then
         echo "ERR: $BASH_SOURCE:$BASH_LINENO $FUNCNAME():$LINENO \"$*\""
@@ -260,7 +260,7 @@ field_size="$1"
 command="$2"
 version="$3"
 
-# Checking arguments
+# Check arguments
 if [[ -z "$field_size" || -z "$command" || -z "$version" || ! -z "$4" ]]
 then
     echo "$usage_message"
