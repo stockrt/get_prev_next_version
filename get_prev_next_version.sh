@@ -58,7 +58,14 @@ get_prev_next_version ()
         return
     fi
 
-    # Backward or Forward?
+    # Check field size type
+    if [[ ! "$field_size" =~ ^[[:digit:]]+$ ]]
+    then
+        echo "$err_field_size_type $field_size"
+        return
+    fi
+
+    # Check command type
     case "$command" in
         next)
             next_field_op=1
@@ -88,6 +95,30 @@ get_prev_next_version ()
     IFS="$ofs"
     let field_count-=1
 
+    # Check version type
+    for count in $(seq 0 $field_count)
+    do
+        field=${fields_orig[$count]}
+
+        if [[ ! "$field" =~ ^[[:digit:]]+$ ]]
+        then
+            echo "$err_version_type $version"
+            return
+        fi
+    done
+
+    # Version number field size case
+    for count in $(seq 0 $field_count)
+    do
+        field=${fields_orig[$count]}
+
+        if [[ ${#field} -gt $field_size ]]
+        then
+            echo "$err_field_size"
+            return
+        fi
+    done
+
     # Initial master cases
     if [[ "$version" == "master" ]]
     then
@@ -101,18 +132,6 @@ get_prev_next_version ()
             return
         fi
     fi
-
-    # Version number field size case
-    for count in $(seq 0 $field_count)
-    do
-        field=${fields_orig[$count]}
-
-        if [[ ${#field} -gt $field_size ]]
-        then
-            echo "$err_field_size"
-            return
-        fi
-    done
 
     # Boundary cases
     will_do_other_cases=0
