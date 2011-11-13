@@ -140,7 +140,7 @@ get_prev_next_version ()
         field=${fields_orig[$count]}
 
         # Does version contain fields other than 0 or 99?
-        if [[ $field != 0 && $field != 99 ]]
+        if [[ $field -ne 0 && $field -ne 99 ]]
         then
             # Will process other cases than boundary cases
             will_do_other_cases=1
@@ -148,32 +148,32 @@ get_prev_next_version ()
     done
 
     skip_boundary_case=0
-    if [[ $will_do_other_cases == 0 && "$command" == "prev" ]]
+    if [[ $will_do_other_cases -eq 0 && "$command" == "prev" ]]
     then
         for count in $(seq 0 $field_count)
         do
             field=${fields_orig[$count]}
 
-            if [[ $field == 99 ]]
+            if [[ $field -eq 99 ]]
             then
                 skip_boundary_case=1
             fi
         done
 
         # All fields are 0 and command is prev
-        if [[ $skip_boundary_case == 0 ]]
+        if [[ $skip_boundary_case -eq 0 ]]
         then
             echo "master"
             return
         fi
-    elif [[ $will_do_other_cases == 0 && "$command" == "next" ]]
+    elif [[ $will_do_other_cases -eq 0 && "$command" == "next" ]]
     then
         np_version=""
         for count in $(seq 0 $field_count)
         do
             field=${fields_orig[$count]}
 
-            if [[ $field == 0 ]]
+            if [[ $field -eq 0 ]]
             then
                 skip_boundary_case=1
             fi
@@ -181,7 +181,7 @@ get_prev_next_version ()
         done
 
         # All fields are 99 and command is next
-        if [[ $skip_boundary_case == 0 ]]
+        if [[ $skip_boundary_case -eq 0 ]]
         then
             echo "1$np_version"
             return
@@ -194,7 +194,7 @@ get_prev_next_version ()
     do
         field=${fields_orig[$reverse_count]}
 
-        if [[ $next_field_change == 1 ]]
+        if [[ $next_field_change -eq 1 ]]
         then
             let field+=next_field_op
         fi
@@ -221,7 +221,7 @@ get_prev_next_version ()
 #        field=${fields_new[$reverse_count]}
 #
 #        # Brain twister level 1
-#        if [[ "$reverse_count" == "0" ]]
+#        if [[ $reverse_count -eq 0 ]]
 #        then
 #            np_version="$field$np_version"
 #        else
@@ -229,7 +229,7 @@ get_prev_next_version ()
 #        fi
 #
 #        # Brain twister level 2
-#        if [[ "$reverse_count" != "0" ]]
+#        if [[ $reverse_count -ne 0 ]]
 #        then
 #            np_version=".$field$np_version"
 #        else
@@ -243,21 +243,21 @@ get_prev_next_version ()
     do
         field=${fields_new[$count]}
 
-        if [[ $count == 0 ]]
+        if [[ $count -eq 0 ]]
         then
             np_version="$field"
         else
             np_version="$np_version.$field"
         fi
 
-        if [[ $field != 0 ]]
+        if [[ $field -ne 0 ]]
         then
             all_zeros_version=0
         fi
     done
 
     # Final master case
-    if [[ $all_zeros_version == 1 ]]
+    if [[ $all_zeros_version -eq 1 ]]
     then
         # All zeros final version is considered master
         echo "master"
