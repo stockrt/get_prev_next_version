@@ -29,6 +29,9 @@
 #############
 
 err_field_size="ERR: Verify field size and version number coherency."
+err_field_size_type="ERR: Wrong field size type. This is not a number:"
+err_command_type="ERR: Wrong command type. This is not a valid command:"
+err_version_type="ERR: Wrong version type. This is not a valid version number:"
 usage_message="Usage: get_prev_next_version.sh 2 prev 1.1.1
 Usage: get_prev_next_version.sh 2 next 1.1.1"
 
