@@ -40,9 +40,178 @@ Usage: get_prev_next_version.sh 2 next 1.1.1"
 ## TESTS ##
 ###########
 
+
+###########
+## USAGE ##
+###########
+
 it_displays_usage () {
     ret=$(../get_prev_next_version.sh)
     test "$ret" = "$usage_message"
+}
+
+it_displays_usage_on_wrong_argument_number1 () {
+    ret=$(../get_prev_next_version.sh 1)
+    test "$ret" = "$usage_message"
+}
+
+it_displays_usage_on_wrong_argument_number2 () {
+    ret=$(../get_prev_next_version.sh 1 prev)
+    test "$ret" = "$usage_message"
+}
+
+it_displays_usage_on_wrong_argument_number3 () {
+    ret=$(../get_prev_next_version.sh 1 prev 1.1 x)
+    test "$ret" = "$usage_message"
+}
+
+
+####################
+## ARGUMENTS TYPE ##
+####################
+
+it_criticize_arguments_field_size_0_prev () {
+    wrong_arg="0"
+    ret=$(../get_prev_next_version.sh $wrong_arg prev 1.1)
+    test "$ret" = "TODO"
+}
+
+it_criticize_arguments_field_size_0_next () {
+    wrong_arg="0"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "TODO"
+}
+
+it_criticize_arguments_command_0 () {
+    wrong_arg="0"
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1)
+    test "$ret" = "TODO"
+}
+
+it_criticize_arguments_field_size_type1 () {
+    wrong_arg="not_a_number1"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type2 () {
+    wrong_arg="1not_a_number"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type3 () {
+    wrong_arg="1not_a_number1"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type4 () {
+    wrong_arg="a"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type5 () {
+    wrong_arg="1.1"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type6 () {
+    wrong_arg="1a"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type7 () {
+    wrong_arg="a1"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type8 () {
+    wrong_arg="1a1"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_field_size_type9 () {
+    wrong_arg="a1a"
+    ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
+    test "$ret" = "$err_field_size_type $wrong_arg"
+}
+
+it_criticize_arguments_command_type1 () {
+    wrong_arg="wrong_command_prev"
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
+    test "$ret" = "$err_command_type $wrong_arg"
+}
+
+it_criticize_arguments_command_type2 () {
+    wrong_arg="wrong_command_next"
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
+    test "$ret" = "$err_command_type $wrong_arg"
+}
+
+it_criticize_arguments_command_type3 () {
+    wrong_arg="prev_wrong_command"
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
+    test "$ret" = "$err_command_type $wrong_arg"
+}
+
+it_criticize_arguments_command_type4 () {
+    wrong_arg="next_wrong_command"
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
+    test "$ret" = "$err_command_type $wrong_arg"
+}
+
+it_criticize_arguments_command_type5 () {
+    wrong_arg="prev_wrong_command_prev"
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
+    test "$ret" = "$err_command_type $wrong_arg"
+}
+
+it_criticize_arguments_command_type6 () {
+    wrong_arg="next_wrong_command_next"
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
+    test "$ret" = "$err_command_type $wrong_arg"
+}
+
+it_criticize_arguments_version_type1 () {
+    wrong_arg="wrong_version"
+    ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
+    test "$ret" = "$err_version_type $wrong_arg"
+}
+
+it_criticize_arguments_version_type2 () {
+    wrong_arg="wrong_version1"
+    ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
+    test "$ret" = "$err_version_type $wrong_arg"
+}
+
+it_criticize_arguments_version_type3 () {
+    wrong_arg="1wrong_version"
+    ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
+    test "$ret" = "$err_version_type $wrong_arg"
+}
+
+it_criticize_arguments_version_type4 () {
+    wrong_arg="1wrong_version1"
+    ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
+    test "$ret" = "$err_version_type $wrong_arg"
+}
+
+it_criticize_arguments_version_type5 () {
+    wrong_arg="a"
+    ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
+    test "$ret" = "$err_version_type $wrong_arg"
+}
+
+it_criticize_arguments_version_type5 () {
+    wrong_arg="b"
+    ret=$(../get_prev_next_version.sh 2 prev $wrong_arg)
+    test "$ret" = "$err_version_type $wrong_arg"
 }
 
 
