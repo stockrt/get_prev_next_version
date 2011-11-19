@@ -30,6 +30,7 @@
 
 err_field_size="ERR: Verify field size and version number coherency."
 err_field_size_type="ERR: Wrong field size type. This is not a number:"
+err_field_size_value="ERR: Wrong field size value. Must be greater than zero."
 err_command_type="ERR: Wrong command type. This is not a valid command:"
 err_version_type="ERR: Wrong version type. This is not a valid version number:"
 usage_message="Usage: get_prev_next_version.sh 2 prev 1.1.1
@@ -73,19 +74,19 @@ it_displays_usage_on_wrong_argument_number3 () {
 it_criticize_arguments_field_size_0_prev () {
     wrong_arg="0"
     ret=$(../get_prev_next_version.sh $wrong_arg prev 1.1)
-    test "$ret" = "TODO"
+    test "$ret" = "$err_field_size_value"
 }
 
 it_criticize_arguments_field_size_0_next () {
     wrong_arg="0"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
-    test "$ret" = "TODO"
+    test "$ret" = "$err_field_size_value"
 }
 
 it_criticize_arguments_command_0 () {
     wrong_arg="0"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1)
-    test "$ret" = "TODO"
+    test "$ret" = "$err_command_type $wrong_arg"
 }
 
 it_criticize_arguments_field_size_type1 () {
