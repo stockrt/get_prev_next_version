@@ -37,9 +37,9 @@ usage_message="Usage: get_prev_next_version.sh 2 prev 1.1.1
 Usage: get_prev_next_version.sh 2 next 1.1.1"
 
 
-##########
-## FUNC ##
-##########
+###########
+## FUNCS ##
+###########
 
 get_prev_next_version ()
 {
