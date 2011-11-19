@@ -29,13 +29,12 @@
 #############
 
 err_field_size="ERR: Verify field size and version number coherency."
-usage_message="Usage: get_prev_next_version.sh 2 prev 1.1.1
-Usage: get_prev_next_version.sh 2 next 1.1.1"
 
 
 ###########
 ## TESTS ##
 ###########
+
 
 ################
 ## Backward 1 ##
