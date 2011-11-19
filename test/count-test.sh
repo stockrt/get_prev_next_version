@@ -38,14 +38,14 @@
 ## COUNT ##
 ###########
 
-it_counts_down_1000000 () {
-    ret="1000000"
+it_counts_down_10000 () {
+    ret="10000"
     count=0
-    count_should_be=1000000
+    count_should_be=10000
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 7 prev $ret)
+        ret=$(../get_prev_next_version.sh 5 prev $ret)
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
