@@ -71,145 +71,145 @@ it_displays_usage_on_wrong_argument_number3 () {
 ## ARGUMENTS TYPE ##
 ####################
 
-it_criticize_arguments_field_size_0_prev () {
+it_criticizes_arguments_field_size_0_prev () {
     wrong_arg="0"
     ret=$(../get_prev_next_version.sh $wrong_arg prev 1.1)
     test "$ret" = "$err_field_size_value"
 }
 
-it_criticize_arguments_field_size_0_next () {
+it_criticizes_arguments_field_size_0_next () {
     wrong_arg="0"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_value"
 }
 
-it_criticize_arguments_command_0 () {
+it_criticizes_arguments_command_0 () {
     wrong_arg="0"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type1 () {
+it_criticizes_arguments_field_size_type1 () {
     wrong_arg="not_a_number1"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type2 () {
+it_criticizes_arguments_field_size_type2 () {
     wrong_arg="1not_a_number"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type3 () {
+it_criticizes_arguments_field_size_type3 () {
     wrong_arg="1not_a_number1"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type4 () {
+it_criticizes_arguments_field_size_type4 () {
     wrong_arg="a"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type5 () {
+it_criticizes_arguments_field_size_type5 () {
     wrong_arg="1.1"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type6 () {
+it_criticizes_arguments_field_size_type6 () {
     wrong_arg="1a"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type7 () {
+it_criticizes_arguments_field_size_type7 () {
     wrong_arg="a1"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type8 () {
+it_criticizes_arguments_field_size_type8 () {
     wrong_arg="1a1"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_field_size_type9 () {
+it_criticizes_arguments_field_size_type9 () {
     wrong_arg="a1a"
     ret=$(../get_prev_next_version.sh $wrong_arg next 1.1)
     test "$ret" = "$err_field_size_type $wrong_arg"
 }
 
-it_criticize_arguments_command_type1 () {
+it_criticizes_arguments_command_type1 () {
     wrong_arg="wrong_command_prev"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
-it_criticize_arguments_command_type2 () {
+it_criticizes_arguments_command_type2 () {
     wrong_arg="wrong_command_next"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
-it_criticize_arguments_command_type3 () {
+it_criticizes_arguments_command_type3 () {
     wrong_arg="prev_wrong_command"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
-it_criticize_arguments_command_type4 () {
+it_criticizes_arguments_command_type4 () {
     wrong_arg="next_wrong_command"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
-it_criticize_arguments_command_type5 () {
+it_criticizes_arguments_command_type5 () {
     wrong_arg="prev_wrong_command_prev"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
-it_criticize_arguments_command_type6 () {
+it_criticizes_arguments_command_type6 () {
     wrong_arg="next_wrong_command_next"
     ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
-it_criticize_arguments_version_type1 () {
+it_criticizes_arguments_version_type1 () {
     wrong_arg="wrong_version"
     ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
     test "$ret" = "$err_version_type $wrong_arg"
 }
 
-it_criticize_arguments_version_type2 () {
+it_criticizes_arguments_version_type2 () {
     wrong_arg="wrong_version1"
     ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
     test "$ret" = "$err_version_type $wrong_arg"
 }
 
-it_criticize_arguments_version_type3 () {
+it_criticizes_arguments_version_type3 () {
     wrong_arg="1wrong_version"
     ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
     test "$ret" = "$err_version_type $wrong_arg"
 }
 
-it_criticize_arguments_version_type4 () {
+it_criticizes_arguments_version_type4 () {
     wrong_arg="1wrong_version1"
     ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
     test "$ret" = "$err_version_type $wrong_arg"
 }
 
-it_criticize_arguments_version_type5 () {
+it_criticizes_arguments_version_type5 () {
     wrong_arg="a"
     ret=$(../get_prev_next_version.sh 1 prev $wrong_arg)
     test "$ret" = "$err_version_type $wrong_arg"
 }
 
-it_criticize_arguments_version_type5 () {
+it_criticizes_arguments_version_type5 () {
     wrong_arg="b"
     ret=$(../get_prev_next_version.sh 2 prev $wrong_arg)
     test "$ret" = "$err_version_type $wrong_arg"
