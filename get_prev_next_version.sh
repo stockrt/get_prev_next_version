@@ -115,7 +115,7 @@ get_prev_next_version ()
     do
         field=${fields_orig[$count]}
 
-        if [[ ! "$field" =~ ^[[:digit:]]+$ ]]
+        if [[ ! "$field" =~ ^[[:digit:]]+$ && "$field" != "master" ]]
         then
             echo "$err_version_type $version"
             return
@@ -127,7 +127,7 @@ get_prev_next_version ()
     do
         field=${fields_orig[$count]}
 
-        if [[ ${#field} -gt $field_size ]]
+        if [[ ${#field} -gt $field_size && "$field" != "master" ]]
         then
             echo "$err_field_size"
             return
