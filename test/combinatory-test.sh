@@ -172,7 +172,8 @@ it_goes_next_1_comb_1 () {
 
 it_goes_next_1_comb_9 () {
     ret=$(../get_prev_next_version.sh 1 next 9)
-    test "$ret" = "9.1"
+    test "$ret" = "1.0"
+    #test "$ret" = "9.1"
 }
 
 it_goes_next_1_comb_10 () {
@@ -222,7 +223,8 @@ it_goes_next_2_comb_10 () {
 
 it_goes_next_2_comb_99 () {
     ret=$(../get_prev_next_version.sh 2 next 99)
-    test "$ret" = "99.1"
+    test "$ret" = "1.0"
+    #test "$ret" = "99.1"
 }
 
 it_goes_next_2_comb_100 () {
@@ -272,7 +274,8 @@ it_goes_next_3_comb_100 () {
 
 it_goes_next_3_comb_999 () {
     ret=$(../get_prev_next_version.sh 3 next 999)
-    test "$ret" = "999.1"
+    test "$ret" = "1.0"
+    #test "$ret" = "999.1"
 }
 
 
@@ -1112,7 +1115,8 @@ it_goes_next_1_comb_9_1 () {
 
 it_goes_next_1_comb_9_9 () {
     ret=$(../get_prev_next_version.sh 1 next 9.9)
-    test "$ret" = "9.9.1"
+    test "$ret" = "1.0.0"
+    #test "$ret" = "9.9.1"
 }
 
 it_goes_next_1_comb_9_10 () {
@@ -1442,7 +1446,8 @@ it_goes_next_2_comb_99_10 () {
 
 it_goes_next_2_comb_99_99 () {
     ret=$(../get_prev_next_version.sh 2 next 99.99)
-    test "$ret" = "99.99.1"
+    test "$ret" = "1.0.0"
+    #test "$ret" = "99.99.1"
 }
 
 it_goes_next_2_comb_99_100 () {
@@ -1772,7 +1777,8 @@ it_goes_next_3_comb_999_100 () {
 
 it_goes_next_3_comb_999_999 () {
     ret=$(../get_prev_next_version.sh 3 next 999.999)
-    test "$ret" = "999.999.1"
+    test "$ret" = "1.0.0"
+    #test "$ret" = "999.999.1"
 }
 
 
@@ -7512,7 +7518,8 @@ it_goes_next_1_comb_9_9_1 () {
 
 it_goes_next_1_comb_9_9_9 () {
     ret=$(../get_prev_next_version.sh 1 next 9.9.9)
-    test "$ret" = "9.9.9.1"
+    test "$ret" = "1.0.0.0"
+    #test "$ret" = "9.9.9.1"
 }
 
 it_goes_next_1_comb_9_9_10 () {
@@ -9802,7 +9809,8 @@ it_goes_next_2_comb_99_99_10 () {
 
 it_goes_next_2_comb_99_99_99 () {
     ret=$(../get_prev_next_version.sh 2 next 99.99.99)
-    test "$ret" = "99.99.99.1"
+    test "$ret" = "1.0.0.0"
+    #test "$ret" = "99.99.99.1"
 }
 
 it_goes_next_2_comb_99_99_100 () {
@@ -12092,5 +12100,6 @@ it_goes_next_3_comb_999_999_100 () {
 
 it_goes_next_3_comb_999_999_999 () {
     ret=$(../get_prev_next_version.sh 3 next 999.999.999)
-    test "$ret" = "999.999.999.1"
+    test "$ret" = "1.0.0.0"
+    #test "$ret" = "999.999.999.1"
 }
