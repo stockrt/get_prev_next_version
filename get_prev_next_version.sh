@@ -154,8 +154,8 @@ get_prev_next_version ()
     do
         field=${fields_orig[$count]}
 
-        # Does version contain fields other than 0 or 99?
-        if [[ $field -ne 0 && $field -ne 99 ]]
+        # Does version contain fields other than 0 or $max_field_value?
+        if [[ $field -ne 0 && $field -ne $max_field_value ]]
         then
             # Will process other cases than boundary cases
             will_do_other_cases=1
@@ -169,7 +169,7 @@ get_prev_next_version ()
         do
             field=${fields_orig[$count]}
 
-            if [[ $field -eq 99 ]]
+            if [[ $field -eq $max_field_value ]]
             then
                 skip_boundary_case=1
             fi
@@ -195,7 +195,7 @@ get_prev_next_version ()
             np_version="$np_version.0"
         done
 
-        # All fields are 99 and command is next
+        # All fields are $max_field_value and command is next
         if [[ $skip_boundary_case -eq 0 ]]
         then
             echo "1$np_version"
@@ -214,13 +214,13 @@ get_prev_next_version ()
             let field+=next_field_op
         fi
 
-        if [[ $field -gt 99 ]]
+        if [[ $field -gt $max_field_value ]]
         then
             field=0
             next_field_change=1
         elif [[ $field -lt 0 ]]
         then
-            field=99
+            field=$max_field_value
             next_field_change=1
         else
             next_field_change=0
