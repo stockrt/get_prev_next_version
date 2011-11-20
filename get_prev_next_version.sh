@@ -89,7 +89,14 @@ get_prev_next_version ()
             ;;
     esac
 
-    # Creating array with original fields
+    # Define max field value
+    max_field_value=
+    for count in $(seq 1 $field_size)
+    do
+        max_field_value="9$max_field_value"
+    done
+
+    # Create array with original fields
     field_count=0
     fields_orig=()
     IFS="."
