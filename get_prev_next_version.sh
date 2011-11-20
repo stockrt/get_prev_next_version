@@ -122,7 +122,7 @@ get_prev_next_version ()
         fi
     done
 
-    # Version number field size case
+    # Check version number field size
     for count in $(seq 0 $field_count)
     do
         field=${fields_orig[$count]}
@@ -203,6 +203,7 @@ get_prev_next_version ()
         fi
     fi
 
+    # Doing some math for the usual cases
     next_field_change=1
     fields_new=()
     for reverse_count in $(seq $field_count -1 0)
