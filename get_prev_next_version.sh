@@ -66,6 +66,13 @@ get_prev_next_version ()
         return
     fi
 
+    # Check field size value
+    if [[ $field_size -eq 0 ]]
+    then
+        echo "$err_field_size_value"
+        return
+    fi
+
     # Check command type
     case "$command" in
         next)
