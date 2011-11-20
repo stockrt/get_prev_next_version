@@ -162,7 +162,7 @@ get_prev_next_version ()
         fi
     done
 
-    skip_boundary_case=0
+    skip_boundary_this_case=0
     if [[ $will_do_other_cases -eq 0 && "$command" == "prev" ]]
     then
         for count in $(seq 0 $field_count)
@@ -171,12 +171,12 @@ get_prev_next_version ()
 
             if [[ $field -eq $max_field_value ]]
             then
-                skip_boundary_case=1
+                skip_boundary_this_case=1
             fi
         done
 
         # All fields are 0 and command is prev
-        if [[ $skip_boundary_case -eq 0 ]]
+        if [[ $skip_boundary_this_case -eq 0 ]]
         then
             echo "master"
             return
@@ -190,13 +190,13 @@ get_prev_next_version ()
 
             if [[ $field -eq 0 ]]
             then
-                skip_boundary_case=1
+                skip_boundary_this_case=1
             fi
             np_version="$np_version.0"
         done
 
         # All fields are $max_field_value and command is next
-        if [[ $skip_boundary_case -eq 0 ]]
+        if [[ $skip_boundary_this_case -eq 0 ]]
         then
             echo "1$np_version"
             return
