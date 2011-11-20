@@ -887,7 +887,7 @@ it_goes_prev_3_comb_9_999 () {
 
 it_goes_prev_3_comb_10_0 () {
     ret=$(../get_prev_next_version.sh 3 prev 10.0)
-    test "$ret" = "9.99"
+    test "$ret" = "9.999"
 }
 
 it_goes_prev_3_comb_10_1 () {
@@ -957,7 +957,7 @@ it_goes_prev_3_comb_99_999 () {
 
 it_goes_prev_3_comb_100_0 () {
     ret=$(../get_prev_next_version.sh 3 prev 100.0)
-    test "$ret" = "99.99"
+    test "$ret" = "99.999"
 }
 
 it_goes_prev_3_comb_100_1 () {
