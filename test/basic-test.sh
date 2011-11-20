@@ -297,7 +297,7 @@ it_goes_forward_1_off6 () {
 
 it_goes_forward_1_master () {
     ret=$(../get_prev_next_version.sh 1 next master)
-    test "$ret" = "1"
+    test "$ret" = "0.1"
 }
 
 it_goes_forward_1_overlap_many1 () {
@@ -397,7 +397,7 @@ it_goes_forward_2_off6 () {
 
 it_goes_forward_2_master () {
     ret=$(../get_prev_next_version.sh 2 next master)
-    test "$ret" = "1"
+    test "$ret" = "0.1"
 }
 
 it_goes_forward_2_overlap_many1 () {
@@ -497,7 +497,7 @@ it_goes_forward_3_off6 () {
 
 it_goes_forward_3_master () {
     ret=$(../get_prev_next_version.sh 3 next master)
-    test "$ret" = "1"
+    test "$ret" = "0.1"
 }
 
 it_goes_forward_3_overlap_many1 () {
