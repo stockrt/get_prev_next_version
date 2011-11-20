@@ -192,13 +192,27 @@ get_prev_next_version ()
             then
                 skip_boundary_this_case=1
             fi
-            np_version="$np_version.0"
+
+            # For when we want to go
+            # from $max_field_value.$max_field_value.$max_field_value
+            # to 1.0.0.0
+            # Example: 999.999.999 -> 1.0.0.0
+            #np_version="$np_version.0"
+
+            # For when we want to go
+            # from $max_field_value.$max_field_value.$max_field_value
+            # to $max_field_value.$max_field_value.$max_field_value.1
+            # Example: 999.999.999 -> 999.999.999.1
+            np_version="$np_version$field."
         done
 
         # All fields are $max_field_value and command is next
         if [[ $skip_boundary_this_case -eq 0 ]]
         then
-            echo "1$np_version"
+            # Example: 999.999.999 -> 1.0.0.0
+            #echo "1$np_version"
+            # Example: 999.999.999 -> 999.999.999.1
+            echo "${np_version}1"
             return
         fi
     fi
