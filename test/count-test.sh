@@ -56,6 +56,24 @@ it_counts_down_10000 () {
     test "$count" = "$count_should_be"
 }
 
+it_counts_up_10000 () {
+    ret="0"
+    count=0
+    count_should_be=10000
+
+    while [[ "$ret" != "10000" ]]
+    do
+        ret=$(../get_prev_next_version.sh 5 next $ret)
+        let count+=1
+        if [[ $count -gt $count_should_be ]]
+        then
+            break
+        fi
+    done
+
+    test "$count" = "$count_should_be"
+}
+
 it_counts_down1_1_0 () {
     ret="1.0"
     count=0
