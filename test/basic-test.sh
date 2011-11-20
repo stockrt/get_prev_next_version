@@ -85,7 +85,7 @@ it_criticize_arguments_field_size_0_next () {
 
 it_criticize_arguments_command_0 () {
     wrong_arg="0"
-    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1)
+    ret=$(../get_prev_next_version.sh 1 $wrong_arg 1.1 | tail -n 1)
     test "$ret" = "$err_command_type $wrong_arg"
 }
 
