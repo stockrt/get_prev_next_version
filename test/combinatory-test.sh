@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Copyright (C) 2011 Rogério Carvalho Schneider <stockrt@gmail.com>
 #
 # This file is part of get_prev_next_version.
