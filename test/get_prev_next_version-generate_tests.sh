@@ -69,7 +69,7 @@ for command in $commands; do
             let i+=1
             echo "
 it_goes_${command}_${field_size}_comb_${x} () {
-    ret=\$(./get_prev_next_version.sh ${field_size} ${command} ${x})
+    ret=\"\$(\$tool ${field_size} ${command} ${x})\"
     test \"\$ret\" = \"TODO\"
 }"
         done
@@ -84,7 +84,7 @@ for command in $commands; do
                 let i+=1
                 echo "
 it_goes_${command}_${field_size}_comb_${x}_${y} () {
-    ret=\$(./get_prev_next_version.sh ${field_size} ${command} ${x}.${y})
+    ret=\"\$(\$toll ${field_size} ${command} ${x}.${y})\"
     test \"\$ret\" = \"TODO\"
 }"
             done
@@ -101,7 +101,7 @@ for command in $commands; do
                     let i+=1
                     echo "
 it_goes_${command}_${field_size}_comb_${x}_${y}_${z} () {
-    ret=\$(./get_prev_next_version.sh ${field_size} ${command} ${x}.${y}.${z})
+    ret=\"\$(\$tool ${field_size} ${command} ${x}.${y}.${z})\"
     test \"\$ret\" = \"TODO\"
 }"
                 done

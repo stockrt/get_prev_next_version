@@ -26,6 +26,8 @@
 ## DEFINES ##
 #############
 
+tool="../get_prev_next_version.sh"
+
 
 ###########
 ## TESTS ##
@@ -43,7 +45,7 @@ it_counts_down_10000 () {
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 5 prev $ret)
+        ret="$($tool 5 prev $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -61,7 +63,7 @@ it_counts_up_10000 () {
 
     while [[ "$ret" != "10000" ]]
     do
-        ret=$(../get_prev_next_version.sh 5 next $ret)
+        ret="$($tool 5 next $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -79,7 +81,7 @@ it_counts_down1_1_0 () {
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 1 prev $ret)
+        ret="$($tool 1 prev $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -97,7 +99,7 @@ it_counts_down1_1_0_0 () {
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 1 prev $ret)
+        ret="$($tool 1 prev $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -115,7 +117,7 @@ it_counts_down1_1_0_0_0 () {
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 1 prev $ret)
+        ret="$($tool 1 prev $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -133,7 +135,7 @@ it_counts_down2_1_0 () {
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 2 prev $ret)
+        ret="$($tool 2 prev $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -151,7 +153,7 @@ it_counts_down2_1_0_0 () {
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 2 prev $ret)
+        ret="$($tool 2 prev $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -169,7 +171,7 @@ it_counts_down2_1_0_0 () {
 #
 #    while [[ "$ret" != "master" ]]
 #    do
-#        ret=$(../get_prev_next_version.sh 2 prev $ret)
+#        ret="$($tool 2 prev $ret)"
 #        let count+=1
 #        if [[ $count -gt $count_should_be ]]
 #        then
@@ -187,7 +189,7 @@ it_counts_down3_1_0 () {
 
     while [[ "$ret" != "master" ]]
     do
-        ret=$(../get_prev_next_version.sh 3 prev $ret)
+        ret="$($tool 3 prev $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -205,7 +207,7 @@ it_counts_down3_1_0 () {
 #
 #    while [[ "$ret" != "master" ]]
 #    do
-#        ret=$(../get_prev_next_version.sh 3 prev $ret)
+#        ret="$($tool 3 prev $ret)"
 #        let count+=1
 #        if [[ $count -gt $count_should_be ]]
 #        then
@@ -223,7 +225,7 @@ it_counts_down3_1_0 () {
 #
 #    while [[ "$ret" != "master" ]]
 #    do
-#        ret=$(../get_prev_next_version.sh 3 prev $ret)
+#        ret="$($tool 3 prev $ret)"
 #        let count+=1
 #        if [[ $count -gt $count_should_be ]]
 #        then
@@ -241,7 +243,7 @@ it_counts_up1_1_0 () {
 
     while [[ "$ret" != "1.0" ]]
     do
-        ret=$(../get_prev_next_version.sh 1 next $ret)
+        ret="$($tool 1 next $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -259,7 +261,7 @@ it_counts_up1_1_0_0 () {
 
     while [[ "$ret" != "1.0.0" ]]
     do
-        ret=$(../get_prev_next_version.sh 1 next $ret)
+        ret="$($tool 1 next $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -277,7 +279,7 @@ it_counts_up1_1_0_0_0 () {
 
     while [[ "$ret" != "1.0.0.0" ]]
     do
-        ret=$(../get_prev_next_version.sh 1 next $ret)
+        ret="$($tool 1 next $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -295,7 +297,7 @@ it_counts_up2_1_0 () {
 
     while [[ "$ret" != "1.0" ]]
     do
-        ret=$(../get_prev_next_version.sh 2 next $ret)
+        ret="$($tool 2 next $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -313,7 +315,7 @@ it_counts_up2_1_0_0 () {
 
     while [[ "$ret" != "1.0.0" ]]
     do
-        ret=$(../get_prev_next_version.sh 2 next $ret)
+        ret="$($tool 2 next $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -331,7 +333,7 @@ it_counts_up2_1_0_0 () {
 #
 #    while [[ "$ret" != "1.0.0.0" ]]
 #    do
-#        ret=$(../get_prev_next_version.sh 2 next $ret)
+#        ret="$($tool 2 next $ret)"
 #        let count+=1
 #        if [[ $count -gt $count_should_be ]]
 #        then
@@ -349,7 +351,7 @@ it_counts_up3_1_0 () {
 
     while [[ "$ret" != "1.0" ]]
     do
-        ret=$(../get_prev_next_version.sh 3 next $ret)
+        ret="$($tool 3 next $ret)"
         let count+=1
         if [[ $count -gt $count_should_be ]]
         then
@@ -367,7 +369,7 @@ it_counts_up3_1_0 () {
 #
 #    while [[ "$ret" != "1.0.0" ]]
 #    do
-#        ret=$(../get_prev_next_version.sh 3 next $ret)
+#        ret="$($tool 3 next $ret)"
 #        let count+=1
 #        if [[ $count -gt $count_should_be ]]
 #        then
@@ -385,7 +387,7 @@ it_counts_up3_1_0 () {
 #
 #    while [[ "$ret" != "1.0.0.0" ]]
 #    do
-#        ret=$(../get_prev_next_version.sh 3 next $ret)
+#        ret="$($tool 3 next $ret)"
 #        let count+=1
 #        if [[ $count -gt $count_should_be ]]
 #        then
